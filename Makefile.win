@@ -1,0 +1,28 @@
+# Project: UTS_CG
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main_uts.o
+LINKOBJ  = main_uts.o
+LIBS     = -L"C:/Program Files (x86)/Mingw/lib;" -L"C:/Program Files (x86)/Mingw/mingw32/lib" -L.-lbgi-lgdi32-lcomdlg32-luuid-loleaut32-lole32-lwinmm -L. -lbgi -lgdi32 -lcomdlg32 -luuid -loleaut32 -lole32 -lwinmm
+INCS     = -I"C:/Program Files (x86)/Mingw/include"
+CXXINCS  = -I"C:/Program Files (x86)/Mingw/include/c++"
+BIN      = UTS_CG.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main_uts.o: main_uts.cpp
+	$(CPP) -c main_uts.cpp -o main_uts.o $(CXXFLAGS)
